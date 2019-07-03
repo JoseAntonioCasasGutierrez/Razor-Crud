@@ -1,0 +1,50 @@
+﻿@model Razor.Models.ViewModels.ListTablaViewModelSalaJuntas
+@{
+    ViewBag.Title = "Actualizar Datos Sala Juntas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Editar_Sala", "Tabla", FormMethod.Post))
+{
+    <div class="row">
+
+        <div class="col-md-12">
+            @Html.HiddenFor(d => d.IdSala)
+            <div>
+                @Html.LabelFor(d => d.Sala)
+                @Html.TextBoxFor(d => d.Sala, "", new { @class = " form-control" })
+                @Html.ValidationMessageFor(d => d.Sala, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.NombreEmpleado)
+                @Html.TextBoxFor(d => d.NombreEmpleado, "", new { @class = " form-control" })
+                @Html.ValidationMessageFor(d => d.NombreEmpleado, null, new { @class = "red" })
+            </div>
+
+            <div>
+                @Html.LabelFor(d => d.FechaRecepcion)<br />
+                @Html.EditorFor(d => d.FechaRecepcion, "", new { @class = " form-control" })<br />
+                @Html.ValidationMessageFor(d => d.FechaRecepcion, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.TotalPersonas)
+                @Html.TextBoxFor(d => d.TotalPersonas, "", new { @class = " form-control" })
+                @Html.ValidationMessageFor(d => d.TotalPersonas, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Horas)
+                @Html.TextBoxFor(d => d.Horas, "", new { @class = " form-control" })
+                @Html.ValidationMessageFor(d => d.Horas, null, new { @class = "red" })
+            </div>
+            <br />
+
+            <div style="text-align:inherit;padding:5px;">
+                <input value="Actualizar Registro" class="btn btn-primary" type="submit" />
+            </div>
+
+
+        </div>
+
+    </div>
+}

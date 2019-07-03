@@ -1,0 +1,28 @@
+﻿@model Razor.Models.ViewModels.ListTablaViewModelTipoSala
+@{
+
+    ViewBag.Title = "Registrar TipoSala";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Nueva_TipoSala", "Tabla", FormMethod.Post))
+{
+    <div class="row">
+
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.TipoSalaJuntas)
+                @Html.TextBoxFor(d => d.TipoSalaJuntas, "", new { @class = " form-control" })
+                @Html.ValidationMessageFor(d => d.TipoSalaJuntas, null, new { @class = "red" })
+            </div>
+            
+            <div style="text-align:inherit;padding:5px;">
+                <input value="Guardar Registro" class="btn btn-primary" type="submit" />
+            </div>
+
+
+        </div>
+
+    </div>
+}

@@ -1,0 +1,40 @@
+﻿@model List<Razor.Models.ViewModels.ListTablaViewModelEmpleados>
+@{
+    ViewBag.Title = "Empleados";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Tabla/Nuevo" class=" btn btn-primary">Registrar Empleado</a>
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>IdEmpleados</th>
+                <th>Nombre</th>
+                <th>Habilidades</th>
+                <th>Salario</th>
+                <th>FechaContratacion</th>
+            </tr>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.IdEmpleados</td>
+                    <td>@p.Nombre</td>
+                    <td>@p.Habilidades</td>
+                    <td>@string.Format(new System.Globalization.CultureInfo("en-US"), "{0:C2}", p.Salario)</td>
+                    <td>@string.Format("{0:dddd, dd MMMM yyyy}", p.FechaContratacion)</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Tabla/Editar/@p.IdEmpleados">Editar Empleado</a>
+                        <a class="btn btn-danger" href="~/Tabla/Eliminar/@p.IdEmpleados">Eliminar Empleado</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <a href="~/Tabla/Print" class=" btn btn-primary">Generar PDF</a>
+
+
+    </div>
+
+</div>

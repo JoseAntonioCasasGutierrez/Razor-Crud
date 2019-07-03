@@ -1,0 +1,43 @@
+﻿@model List<Razor.Models.ViewModels.ListTablaViewModelSalaJuntas>
+@{
+    ViewBag.Title = "Sala_Juntas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Tabla/Nueva_Sala" class=" btn btn-primary">Sala Juntas</a>
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>IdSala</th>
+                <th>Sala</th>
+                <th>NombreEmpleado</th>
+                <th>FechaRecepcion</th>
+                <th>TotalPersonas</th>
+                <th>TotalHora</th>
+
+            </tr>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.IdSala</td>
+                    <td>@p.Sala</td>
+                    <td>@p.NombreEmpleado</td>
+                    <td>@string.Format("{0:dddd, dd MMMM yyyy}", p.FechaRecepcion)</td>
+                    <td>@p.TotalPersonas</td>
+                    <td>@p.Horas</td>
+
+                    <td>
+                        <a class="btn btn-default" href="~/Tabla/Editar_Sala/@p.IdSala">Editar Sala</a>
+                        <a class="btn btn-danger" href="~/Tabla/Eliminar_Sala/@p.IdSala">Eliminar Sala</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <a href="~/Tabla/PrintPDF" class=" btn btn-primary">Generar PDF</a>
+
+    </div>
+
+</div>
